@@ -1,4 +1,4 @@
 browserify-test
 ===============
 
-Test if browserify is broken
+Test if browserify has a bug. 
