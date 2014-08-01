@@ -3,20 +3,26 @@ var http = require('http');
 
 var file = 'test.json';
 
-var opts = {
-  port: window.location.port,
-  path: window.location.pathname + file
-};
+function doRequest(file) {
+  console.log('requesting %s', file);
+  var opts = {
+    port: window.location.port,
+    path: window.location.pathname + file
+  };
 
-http.get(opts, function(res) {
-  var buffer = '';
-  res.on('data', function(c) {
-    buffer += c;
+  http.get(opts, function(res) {
+    var buffer = '';
+    res.on('data', function(c) {
+      buffer += c;
+    });
+    res.on('end', function() {
+      console.log('The follwing line is now the reponse of %s:', file);
+      console.log(buffer);
+    });
   });
-  res.on('end', function() {
-    console.log(buffer);
-  });
-});
+}
+doRequest('test.json');
+doRequest('test2.json');
 
 },{"http":6}],2:[function(require,module,exports){
 /*!
@@ -1719,7 +1725,7 @@ http.request = function (params, cb) {
     if (!params.host && params.hostname) {
         params.host = params.hostname;
     }
-
+    
     if (!params.scheme) params.scheme = window.location.protocol.split(':')[0];
     if (!params.host) {
         params.host = window.location.hostname || window.location.host;
@@ -1731,7 +1737,7 @@ http.request = function (params, cb) {
         params.host = params.host.split(':')[0];
     }
     if (!params.port) params.port = params.scheme == 'https' ? 443 : 80;
-
+    
     var req = new Request(new xhrHttp, params);
     if (cb) req.on('response', cb);
     return req;
@@ -1841,7 +1847,6 @@ http.STATUS_CODES = {
     510 : 'Not Extended',               // RFC 2774
     511 : 'Network Authentication Required' // RFC 6585
 };
-
 },{"./lib/request":7,"events":5,"url":31}],7:[function(require,module,exports){
 var Stream = require('stream');
 var Response = require('./response');
