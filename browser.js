@@ -1,13 +1,13 @@
 var http = require('http');
 
-var url = '/test.json'; // Should work with statically serving the dir.
+var file = 'test.json';
 
-if (global.location && global.location.origin && global.location.pathname) {
-  url = global.location.origin + global.location.pathname + '/test.json';
-  console.log('cool');
-}
+var opts = {
+  port: window.location.port,
+  path: window.location.pathname + file
+};
 
-http.get(url, function(res) {
+http.get(opts, function(res) {
   var buffer = '';
   res.on('data', function(c) {
     buffer += c;
