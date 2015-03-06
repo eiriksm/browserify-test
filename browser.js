@@ -1,9 +1,16 @@
 var http = require('http');
-
+var util = require('util');
 var file = 'test.json';
+var consoleEl = document.getElementById('console');
+
+function logger() {
+  var str = util.format.apply(this, arguments);
+  consoleEl.innerHTML += str + "\n";
+}
+
 
 function doRequest(file) {
-  console.log('requesting %s', file);
+  logger('requesting %s', file);
   var opts = {
     port: window.location.port,
     path: window.location.pathname + file
@@ -15,8 +22,9 @@ function doRequest(file) {
       buffer += c;
     });
     res.on('end', function() {
-      console.log('The follwing line is now the reponse of %s:', file);
-      console.log(buffer);
+      logger('Finished request for %s', file);
+      logger('The follwing line is now the reponse of %s:', file);
+      logger(buffer);
     });
   });
 }

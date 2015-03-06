@@ -1,0 +1,24 @@
+{
+  "name": "browserify-test",
+  "version": "1.0.0",
+  "description": "browserify-test ===============",
+  "main": "browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eiriksm/browserify-test.git"
+  },
+  "author": "eirik@morland.no",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/eiriksm/browserify-test/issues"
+  },
+  "homepage": "https://github.com/eiriksm/browserify-test",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
