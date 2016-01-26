@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/eiriksm/browserify-test",
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "gulp": "^3.8.11",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }
