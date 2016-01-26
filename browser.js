@@ -12,7 +12,6 @@ function logger() {
 function doRequest(file) {
   logger('requesting %s', file);
   var opts = {
-    port: window.location.port,
     path: window.location.pathname + file
   };
 
