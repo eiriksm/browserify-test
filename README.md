@@ -1,6 +1,11 @@
 browserify-test
 ===============
 
+## Update (added 26th Jan 2016):
+**This is now fixed, and this repo and POC has been updated with working code instead. Hurray!**
+
+## Old description:
+
 Test if browserify has a bug.
 
 Please see the POC page on [https://eiriksm.github.io/browserify-test/](https://eiriksm.github.io/browserify-test/)
